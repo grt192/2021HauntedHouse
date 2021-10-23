@@ -22,7 +22,7 @@ public class IntervalSolenoid extends SubsystemBase {
     int nextPeriod;
 
     public IntervalSolenoid(SolenoidGroup solenoids, 
-            int startupDelay, int maxPeriod, int minPeriod, int holdDuration) {
+            int startupDelay, int minPeriod, int maxPeriod, int holdDuration) {
         CommandScheduler.getInstance().registerSubsystem(this);
 
         this.maxPeriod = maxPeriod;
@@ -58,7 +58,6 @@ public class IntervalSolenoid extends SubsystemBase {
         if (!hasStarted && timer.hasElapsed(startupDelay)) {
             timer.reset();
             hasStarted = true;
-            System.out.println("started");
         }
 
         if (hasStarted) {
